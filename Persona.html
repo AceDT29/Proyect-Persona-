@@ -1,0 +1,95 @@
+<html>
+<head> 
+  <title>Elemental Personas</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">  
+</head>
+<body>  
+<main class="Main-Game">
+
+  <section class="VelvetRoom" id="sectionVelvetRoom">
+    <h1 class="VelvetRoom_Title" id="titulito">
+     <p>真・女神転生: PERSONA!</p> 
+     <img src="./assets/Models/logop5.png" class="VelvetRoom_miniLogo">
+    </h1>
+    <div class="VelvetRoom_TextGlobe">
+     <img class="VelvetRoom_Cont" src="./assets/Models/Start.png" alt="">
+     <h2 class="VelvetRoom_SubTitle">Elige tu persona elemental</h2>
+    </div>
+    <div class="VelvetRoom_Cards" id="mainView">
+    </div>
+    <button class="StartButton" id="p">Seleccionar</button>
+    <audio id="velvetAudio" loop>
+       <source src="./audio/Persona 3 - Velvet Room.m4a" type="audio/mpeg">
+        Tu navegador no soporta la etiqueta de audio.
+    </audio>
+    </section> 
+
+   <section class="Map" id="sectionMap">
+     <h2 class="Map_Guide">Mueve a tu personaje con las flechas del teclado</h2>
+     <canvas class="Map_Box" id="canMap"></canvas>
+       <button class="Map_moveSetButton" onmouseup="stopMove()" onmousedown="moveUp()">⬆</button>
+     <div class="Map_moveSet">
+       <button class="Map_moveSetButton" onmouseup="stopMove()" onmousedown="moveLeft()">⬅</button>
+       <button class="Map_moveSetButton" onmouseup="stopMove()" onmousedown="moveDown()">⬇</button>
+       <button class="Map_moveSetButton" onmouseup="stopMove()" onmousedown="moveRight()">➡</button>
+     </div>
+    <audio id="audioMap" loop>
+      <source src="./audio/Lumiose City.m4a" type="audio/mpeg">
+      Tu navegador no soporta la etiqueta de audio.
+    </audio>
+   </section>
+  
+  <article class="MainInterface">
+    
+   <section class="Combat" id="seCombate">
+    <h1 class="VelvetRoom_Title--VersionCombat" id="titulito">
+     <p>真・女神転生: PERSONA!</p> <img src="./assets/Models/logop5.png" class="VelvetRoom_miniLogo">  
+    </h1>   
+    <h2>Selecion de ataques!</h2>  
+     <p>elige tu ataque elemental</p>
+    <div id="contAtk" class="Combat_ContainerAtk">   
+    </div>
+   </section>
+
+   <section class="Results" id="result"> 
+    <div id="resultado">
+    </div>
+    <div class="Reload" id="back">
+      <button class="Reload_Button" id="reini">Reiniciar</button>
+    </div>
+   </section>      
+   
+   <div id="casillita" class="GridBox">
+     <div class="GridBox_HUD GridBox_HUD--Player" id="PlayerBox">
+        <p class="GridBox_PlayerPoint" id="vidasJugador">0</p> 
+        <div class="GridBox_AltBox" id="Here">
+        </div>
+        <p class="GridBox_PersonaName" id="yourPersona"></p>
+        <div id="ataqueJugador"></div>
+     </div>
+     <p class="GridBox_VS">VS</p>
+     <div class="GridBox_HUD GridBox_HUD--Enemy" id="EnemyBox">
+        <p class="GridBox_EnemyPoint" id="vidasEnemigo">0</p>
+        <div class="GridBox_AltBox" id="HereEnemy">
+        </div>
+        <p class="GridBox_PersonaName" id="foePersona"></p>
+        <div id="ataqueEnemigo"></div>
+    </div>        
+   </div>
+   <audio id="combatAudio" loop>
+    <source src="./audio/Persona 5 - Last Surprise.mp3" type="audio/mpeg">
+     Tu navegador no soporta la etiqueta de audio.
+  </audio> 
+
+  </article>
+
+<script src="./js/shinMegami.js"></script>  
+</main>
+</body>
+
+</html>

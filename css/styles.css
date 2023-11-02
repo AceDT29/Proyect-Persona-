@@ -1,0 +1,339 @@
+
+:root {
+  --main-color: crimson;
+  --secondary-color: #E7B10A;
+  --main-font:  "Rampart One", cursive;
+  --font-color: aliceblue;
+}
+
+body {
+  font-family: var(--main-font);
+  color: var(--font-color);
+  margin: 0;
+}
+   
+.VelvetRoom {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  background-image: url(../assets/Backgrounds/Velvet.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.VelvetRoom_Title {
+  color: var(--font-color);
+  font-size: 38px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.VelvetRoom_Title--VersionCombat {
+  font-size: 25px;
+  color: var(--font-color);
+  display: flex;
+  align-items: center;
+  margin: 0;
+} 
+
+.VelvetRoom_miniLogo {
+  width: 40px;
+}
+
+.VelvetRoom_TextGlobe {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center
+}
+
+.VelvetRoom_Cont {
+  width: 450px;
+  height: 100px;
+}
+
+.VelvetRoom_SubTitle {
+  font-size: 17px;
+  color:var(--font-color);
+  position: absolute;
+}
+
+.VelvetRoom_Cards {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.VelvetRoom_PersonaCard {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: 160px;
+  height: 260px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 10px;
+  border-radius: 3%;
+  font-size: 15px;
+  animation-name: efectoFloat;
+  animation-iteration-count: infinite;
+  animation-duration: 2.7s;
+  animation-direction: alternate;
+  background: url("../assets/Models/wild.png");
+  background-size: 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.VelvetRoom_PersonaCard:hover {
+  cursor: pointer;
+}
+
+.VelvetRoom_Check-Item:checked + .VelvetRoom_PersonaCard {
+  animation-play-state: paused;
+}
+
+.VelvetRoom_Check-Item {
+  display: none;
+}
+
+.VelvetRoom_PersonaCard img {
+  width: 125px;
+  height: 140px;
+}
+
+.VelvetRoom_PersonaName {
+  color: var(--font-color);
+}
+
+.VelvetRoom_PersonaModel {
+  width: 100px;
+  height: 120px;
+  display: flex;
+  flex-direction: row;
+}
+
+.StartButton {
+  width: auto;
+  height: 70px;
+  padding: 20px;
+  font-family: var(--main-font);
+  font-size: 16px;
+  background-color: black;
+  margin-top: 20px;
+  border: 2px solid azure;
+  border-radius: 40%;
+  color: var(--font-color);
+  cursor: pointer;
+  animation-name: efectSelecc;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-delay: 3s;
+  animation-duration: 0.9s;
+  animation-timing-function: ease-out;
+}
+
+.Map {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../assets/Backgrounds/Night.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.Map_Box {
+  border: 2px solid white;
+}
+
+.Map_moveSet {
+  display: flex;
+}
+
+.Map_moveSetButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  margin: 5px;
+  padding: 3px;
+  font-family: var(--main-font);
+  color: black;
+  font-size: 8px;
+  background: var(--secondary-color);
+  border: 1px solid;
+  cursor: pointer;
+}
+
+.MainInterface {
+  background-image: url(../assets/Backgrounds/Battle.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.Combat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--font-color);
+}
+
+.Combat_ContainerAtk {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.Combat_personaAttack {
+  margin: 5px;
+  width: 120px;
+  height: 120px;
+  padding: 8px;
+  font-family: var(--main-font);
+  color: var(--main-color);
+  font-size: 20px;
+  background: transparent;
+  border: 1px solid;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.Results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 14px;
+  margin-top: 46px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.Reload_Button{
+  font-family: var(--main-font);
+  background: transparent;
+  border: none;
+  color: var(--font-color);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.GridBox{
+  display: grid;
+  grid-template-columns: 40% 20% 40%;
+  grid-template-rows: 10% 40% 10% 40%;
+  justify-items: center;
+  font-size: 24px;
+  background-image: url(../assets/Backgrounds/GridHUD.jpg);
+  background-size: cover;
+  opacity: 0.9;
+}
+
+.GridBox_HUD {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.GridBox_HUD--Player {
+  grid-column: 1/2;
+  grid-row: 1/5;
+}
+
+.GridBox_VS {
+  grid-column: 2/3;
+  grid-row: 3/5;
+}
+
+.GridBox_HUD--Enemy {
+  grid-column: 3/4;
+  grid-row: 1/5;
+}
+
+.GridBox_AltBox {
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+
+.GridBox_Avatar {
+  width: 100%;
+  height: auto;
+}
+
+.GridBox_AvatarEnemy {
+  width: 100%;
+  height: auto;
+}
+
+button:active{
+  background: linear-gradient(black, #44000D);
+  transform: scale(0.8);
+}
+
+@keyframes efectoFloat {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(20px);
+  }
+}
+
+@keyframes efectSelecc {
+  from {
+    transform: translateX(-900px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
+@media (max-width: 500px) {
+  .VelvetRoom_Cont {
+    width: 350px;
+    height: 75px;
+  }
+  .VelvetRoom_SubTitle {
+    font-size: 10px;
+    color:var(--font-color);
+    position: absolute;
+  }
+  .VelvetRoom_PersonaCard{
+    flex-direction: column;
+  }
+  .VelvetRoom_Cards{
+    flex-direction: column;
+  }
+  .VelvetRoom_Title{
+    font-size: 25px;
+  }
+  .VelvetRoom_SubTitle{
+    font-size: 16px;
+  }
+  .GridBox{
+    background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5a6a7436-735d-4301-bfbb-b2cf34e31d53/dedb0ou-c186a0da-1053-4675-91f0-a0a61d31c9a8.jpg/v1/fill/w_1192,h_670,q_70,strp/persona_5_pattern_by_photosstrator_dedb0ou-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIwIiwicGF0aCI6IlwvZlwvNWE2YTc0MzYtNzM1ZC00MzAxLWJmYmItYjJjZjM0ZTMxZDUzXC9kZWRiMG91LWMxODZhMGRhLTEwNTMtNDY3NS05MWYwLWEwYTYxZDMxYzlhOC5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.JKbJkXQkeg49-YKT6xnO8ZtkPqnPAaEsMJoVihMU7LM);
+    background-size: cover;
+  }
+  .GridBox_AltBox {
+    width: 130px;
+    height: 130px;
+  }
+}
