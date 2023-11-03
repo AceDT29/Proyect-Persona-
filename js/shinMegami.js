@@ -34,7 +34,7 @@ let input4
 let input5
 let thisIsMyPersona
 let personaObject
-let ataques = []
+let atkS = []
 let botones = []
 let playerAtk = []
 let foeAtk = []
@@ -58,7 +58,7 @@ class Persona {
     this.nombre = nombre
     this.foto = foto
     this.vidas = vidas
-    this.ataques = []
+    this.atkS = []
     this.x = x
     this.y = y
     this.width = 85
@@ -91,7 +91,7 @@ let eligorEnemigo = new Persona("Eligor", "./assets/Models/Eligor.png", 5, "./as
 let arseneEnemigo = new Persona("Arsene", "./assets/Models/arsene.png", 5, "./assets/Models/arsene.png", aleatorio(300, 450), aleatorio(360, 400))
 let metaTronEnemigo = new Persona("Metatron", "./assets/Models/metatron.png", 5, "./assets/Models/metatron.png", aleatorio(50, 95), aleatorio(420, 470))
 
-jackFrost.ataques.push(
+jackFrost.atkS.push(
   {nombre: "Bufu", imagen: "./assets/Models/Ice.png", id: "botonHielo" },
   {nombre: "Bufu", imagen: "./assets/Models/Ice.png", id: "botonHielo" },
   {nombre: "Bufu", imagen: "./assets/Models/Ice.png", id: "botonHielo" },
@@ -99,7 +99,7 @@ jackFrost.ataques.push(
   {nombre: "Zio", imagen: "./assets/Models/Elec.png", id: "botonElectro" },
 )
 
-pixie.ataques.push(
+pixie.atkS.push(
   {nombre: "Zio", imagen: "./assets/Models/Elec.png", id: "botonElectro" },
   {nombre: "Zio", imagen: "./assets/Models/Elec.png", id: "botonElectro" },
   {nombre: "Zio", imagen: "./assets/Models/Elec.png", id: "botonElectro" },
@@ -107,7 +107,7 @@ pixie.ataques.push(
   {nombre: "Bufu", imagen: "./assets/Models/Ice.png", id: "botonHielo" },
 )
 
-eligor.ataques.push(
+eligor.atkS.push(
   {nombre: "Agi", imagen: "./assets/Models/Fire.png", id: "botonFuego" },
   {nombre: "Agi", imagen: "./assets/Models/Fire.png", id: "botonFuego" },
   {nombre: "Agi", imagen: "./assets/Models/Fire.png", id: "botonFuego" },
@@ -115,7 +115,7 @@ eligor.ataques.push(
   {nombre: "Zio", imagen: "./assets/Models/Elec.png", id: "botonElectro" },
 )
 
-arsene.ataques.push(
+arsene.atkS.push(
   {nombre: "Agi", imagen: "./assets/Models/Fire.png", id: "botonFuego" },
   {nombre: "Agi", imagen: "./assets/Models/Fire.png", id: "botonFuego" },
   {nombre: "Agi", imagen: "./assets/Models/Fire.png", id: "botonFuego" },
@@ -123,7 +123,7 @@ arsene.ataques.push(
   {nombre: "Zio", imagen: "./assets/Models/Elec.png", id: "botonElectro" },
 )
 
-metaTron.ataques.push(
+metaTron.atkS.push(
   {nombre: "Zio", imagen: "./assets/Models/Elec.png", id: "botonElectro" },
   {nombre: "Zio", imagen: "./assets/Models/Elec.png", id: "botonElectro" },
   {nombre: "Zio", imagen: "./assets/Models/Elec.png", id: "botonElectro" },
@@ -213,9 +213,9 @@ function extraerAtk(thisIsMyPersona){
   
   for (let i = 0; i < personas.length; i++) {
     if(thisIsMyPersona === personas[i].nombre)
-      ataques = personas[i].ataques
+      atkS = personas[i].atkS
   }
-  mostrarAtk(ataques)
+  mostrarAtk(atkS)
   console.log(thisIsMyPersona)
   postingPersona(thisIsMyPersona)
 }
@@ -242,9 +242,9 @@ function postingPersona(thisIsMyPersona) {
   })
 }
 
-function mostrarAtk(ataques){
+function mostrarAtk(atkS){
 
-  ataques.forEach((ataque) => {
+  atkS.forEach((ataque) => {
     let ataqueDis = `
     <button class="Combat_personaAttack Combat_ButtonAtk" id=${ataque.id}>
      <p>${ataque.nombre}</p>
@@ -252,7 +252,6 @@ function mostrarAtk(ataques){
     </button>
   `
     contenedorAtaques.innerHTML += ataqueDis 
- 
   })
    bA = document.getElementById("botonFuego")
    bB = document.getElementById("botonHielo")
@@ -268,7 +267,7 @@ function pcElige(){
   enemyAvatar.src = personas[aleatorioPc].foto
   foeAlt.appendChild(enemyAvatar)
   enemyAvatar.classList.add("GridBox_AvatarEnemy")
-  secuenceFoe = personas[aleatorioPc].ataques
+  secuenceFoe = personas[aleatorioPc].atkS
   secuenciaAtk()
 }
 
@@ -278,18 +277,21 @@ function secuenciaAtk(){
     const textoBoton = e.target.textContent.trim()
     if(textoBoton === "Agi") {
       playerAtk.push("Agi🔥")
+      enemyAproaching()
       boton.disabled = true
      } else if(textoBoton === "Bufu") {
         playerAtk.push("Bufu🧼")
+        enemyAproaching()
         boton.disabled = true
       } else if(textoBoton  === "Zio") {
         playerAtk.push("Zio⚡")
+        enemyAproaching()
         boton.disabled = true
-        }
-  console.log(playerAtk)  
-  enemyAproaching()
+        }  
     }) 
   })
+  prepararCombate()  
+  console.log(playerAtk)
 }
 
 function enemyAproaching() {
@@ -302,9 +304,8 @@ function enemyAproaching() {
   } else {
     foeAtk.push("Zio⚡")
   }
-  
-  console.log(foeAtk)
   prepararCombate() 
+  console.log(foeAtk)
 }
 
 function prepararCombate() {

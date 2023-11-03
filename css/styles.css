@@ -130,7 +130,7 @@ body {
   background-color: black;
   margin-top: 20px;
   border: 2px solid azure;
-  border-radius: 40%;
+  border-radius: 10%;
   color: var(--font-color);
   cursor: pointer;
   animation-name: efectSelecc;
@@ -139,6 +139,11 @@ body {
   animation-delay: 3s;
   animation-duration: 0.9s;
   animation-timing-function: ease-out;
+  transition: 0.2s ease;
+}
+
+.VelvetRoom_StartButton:active {
+  transform: scale(0.8);
 }
 
 .Map {
